@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <title>MISSÃO AURA</title>
+  </head>
+  <body>
+    <main>
+        <div id="tela_login">
+         <form id="form" action="javascript:void(0)" method="get">
+            <div id="info">
+              <label for="nome">Qual seu nome?</label>
+              <input type="text" id="nome" name="nome" placeholder="Digite sua senha...">
+              <label for="data">Qual sua data de nascimento?</label>
+              <input type="date" id="data" name="data">
+            </div>
+            <div>
+                <label for="perguntas">1. Qual atividade você exerce?</label>
+                <select id="perguntas" placeholder="---">
+                    <option>---</option>
+                    <option id="anya">Medicina</option>
+                    <option id="swan">Mecânica</option>
+                    <option id="cur">Administramento</option>
+                    <option id="jim">Co-administramento</option>
+                    <option id="dai">Ajudante</option>
+                </select>
+                <label for="">2. Se encontrasse em uma situação fatal, o quê faria?</label>
+                <select id="perguntas" value="---">
+                    <option>---</option>
+                    <option id="anya">Cuidaria de todos</option>
+                    <option id="dai">Protegeria quem eu posso</option>
+                    <option id="swan">Aproveitaria meus últimos momentos</option>
+                    <option id="cur">Tentaria salvar a nave</option>
+                    <option id="jim">Concertaria meus erros</option>
+                </select>    
+            </div>
+          <button id="login">ENTRAR</button>
+         </form>
+        </div>
+    </main>
+     <div id="overlay"></div>
+    <script src="sketch.js"></script>
+  </body>
+</html>
