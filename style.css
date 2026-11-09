@@ -52,11 +52,13 @@ input {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 9998;
+  z-index: 9997;
 }
 
+
+
 header img {
-    z-index: 9997;
+    z-index: 9996;
 }
 
 #login {
@@ -82,4 +84,72 @@ select {
   background-color: #0000007a ;
   color: #ffffff;
   font-size: 16px;
+}
+
+h1 {
+  color: #ffffff;
+}
+
+.resultado {
+  max-width: 500px;
+  margin: 20px auto 0;
+  padding: 24px;
+  color: #fff;
+  text-align: center;
+  background: #211b2ddd;
+  border: 2px solid #d6a8ff;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px #0008;
+  animation: aparecer 0.4s ease-out;
+  z-index: 9999;
+  right: 350px;
+  position: absolute;
+}
+
+.resultado h2 {
+  margin: 0 0 10px;
+  color: #e2c3ff;
+}
+
+.resultado p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.resultado[hidden] {
+  display: none;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#refazer {
+  display: block;
+  margin: 16px auto 0;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+  position: relative;
+  z-index: 9999;
+  top: 655px;
+}
+
+#refazer:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.08);
+  cursor: pointer;
 }

@@ -4,35 +4,35 @@ const perfis = [
         nome: "Curly", 
         categoria: "Administramento", 
         descricao: "Capitão da tripulação Tulpar.", 
-        imagem: "" 
+        imagem: "Curlyprecrash.jpeg" 
     }, 
     { 
         id: 2, 
         nome: "Anya", 
         categoria: "Medicina", 
         descricao: "Enfermeira da tripulação Tulpar.", 
-        imagem: "perfil-1.jpg" 
+        imagem: "Anya_normal.jpeg" 
     },
     { 
         id: 3, 
         nome: "Swansea", 
         categoria: "Mecânica", 
         descricao: "Transforma problemas em soluções.", 
-        imagem: "perfil-1.jpg" 
+        imagem: "Swanseaportrait.jpeg" 
     }, 
     { 
         id: 4, 
         nome: "Daisuke", 
         categoria: "Ajudante", 
         descricao: "Transforma soluções em problemas.", 
-        imagem: "perfil-1.jpg" 
+        imagem: "Daisukeportrait.jpeg" 
     }, 
     { 
         id: 5, 
         nome: "Jimmy", 
         categoria: "Administramento", 
         descricao: "...", 
-        imagem: "perfil-1.jpg" 
+        imagem: "Jimmyportrait.jpeg" 
     }, 
 ]; 
 
@@ -59,6 +59,55 @@ function isValidYYYYMMDD(input) {
     else {
         idade = yyyy-year;
     }
-
+    return idade;
 }
 
+document.getElementById("login").addEventListener('click', function(){
+
+   const input = document.getElementById("data").value;
+   const idade = isValidYYYYMMDD(input);
+      
+
+});
+const formulario = document.querySelector("#form");
+const resultado = document.querySelector("#resultado");
+
+formulario.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const pontuacao = Array(perfis.length).fill(0);
+  const respostas = formulario.querySelectorAll('select[id^="q"]');
+
+  respostas.forEach((resposta) => {
+    const id = Number(resposta.value);
+    const indice = perfis.findIndex((perfil) => perfil.id === id);
+
+    if (indice !== -1) {
+      pontuacao[indice]++;
+    }
+
+    resultado.hidden = false;
+    botaoRefazer.hidden = false;
+
+    botaoRefazer.addEventListener("click", () => {
+  formulario.reset();
+  resultado.hidden = true;
+  botaoRefazer.hidden = true;
+   });
+ });
+
+const maiorPontuacao = Math.max(...pontuacao);
+const indiceVencedor = pontuacao.indexOf(maiorPontuacao);
+const personagem = perfis[indiceVencedor];
+
+  const titulo = document.createElement("h2");
+titulo.textContent = `Seu personagem é ${personagem.nome}!`;
+
+const descricao = document.createElement("p");
+descricao.textContent = personagem.descricao;
+
+resultado.replaceChildren(titulo, descricao);
+resultado.hidden = false;
+});
+
+const botaoRefazer = document.querySelector("#refazer");
